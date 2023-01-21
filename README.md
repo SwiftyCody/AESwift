@@ -40,7 +40,7 @@ If type is not specified, decryption is performed with AES256 by default.
 ### Swift Package Manager
 ```swift
     dependencies: [
-        .package(url: "", .upToNextMajor(from: "1.0"))
+        .package(url: "https://github.com/SwiftyCody/AESwift", .upToNextMajor(from: "1.0"))
     ]
 ```
 
