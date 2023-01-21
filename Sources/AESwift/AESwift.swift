@@ -7,7 +7,7 @@ extension Data {
     }
 }
 
-@objc enum AESType: Int {
+@objc public enum AESType: Int {
     case aes128
     case aes192
     case aes256
@@ -23,18 +23,18 @@ extension Data {
 
 extension Data {
     
-    func aesEncrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> Data? {
+    public func aesEncrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> Data? {
         return NSData(data: self).aesEncrypt(key: key, iv: iv, type: type, options: options) as? Data
     }
     
-    func aesDecrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> Data? {
+    public func aesDecrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> Data? {
         return NSData(data: self).aesDecrypt(key: key, iv: iv, type: type, options: options) as? Data
     }
 }
 
 extension NSData {
     
-    @objc func aesEncrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> NSData? {
+    @objc public  func aesEncrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> NSData? {
         let paddingKey = key.padding(toLength: type.keyLength, withPad: "0", startingAt: 0)
         
         if let keyData = paddingKey.data(using: String.Encoding.utf8),
@@ -64,7 +64,7 @@ extension NSData {
         return nil
     }
     
-    @objc func aesDecrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> NSData? {
+    @objc public  func aesDecrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> NSData? {
         let paddingKey = key.padding(toLength: type.keyLength, withPad: "0", startingAt: 0)
         
         if let keyData = paddingKey.data(using: String.Encoding.utf8),
