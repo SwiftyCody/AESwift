@@ -21,17 +21,6 @@ extension Data {
     }
 }
 
-extension Data {
-    
-    public func aesEncrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> Data? {
-        return NSData(data: self).aesEncrypt(key: key, iv: iv, type: type, options: options) as? Data
-    }
-    
-    public func aesDecrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> Data? {
-        return NSData(data: self).aesDecrypt(key: key, iv: iv, type: type, options: options) as? Data
-    }
-}
-
 extension NSData {
     
     @objc public  func aesEncrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> NSData? {
@@ -92,5 +81,16 @@ extension NSData {
             }
         }
         return nil
+    }
+}
+
+extension Data {
+    
+    public func aesEncrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> Data? {
+        return NSData(data: self).aesEncrypt(key: key, iv: iv, type: type, options: options) as? Data
+    }
+    
+    public func aesDecrypt(key: String, iv: String = "", type: AESType = .aes256, options: Int = kCCOptionPKCS7Padding) -> Data? {
+        return NSData(data: self).aesDecrypt(key: key, iv: iv, type: type, options: options) as? Data
     }
 }
