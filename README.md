@@ -1,6 +1,7 @@
 # AESwift
 
 🥸 Data and NSData Extension made for **AES encryption/decryption** only with Swift.
+
 😏 There is no need to depend on a large library that provides various encryption/decryption methods for AES encryption/decryption. It just uses **Swift's CommonCrypto**.
 
 ## Usage
