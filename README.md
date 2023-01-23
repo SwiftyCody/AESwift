@@ -44,6 +44,11 @@ If type is not specified, decryption is performed with AES256 by default.
     ]
 ```
 
+### CocoaPods
+```swift
+    pod 'AESwift'
+```
+
 ## License
 
 **AESwift** is under MIT license.
